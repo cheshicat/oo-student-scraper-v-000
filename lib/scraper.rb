@@ -10,25 +10,12 @@ class Scraper
 
     index.css("div.student-card").each do |student|
       students[student] = {
-        :name
-        :location
-        :profile-url
+        :name => student.css("div.card-text-container h4.student-name").text
+        :location => student.css("div.card-text-container p.student-location").text
+        :profile_url => student.css("a href")
       }
-
-
-    kickstarter.css("li.project.grid_4").each do |project|
-   title = project.css("h2.bbcard_name strong a").text
-   projects[title.to_sym] = {
-     :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
-     :description => project.css("p.bbcard_blurb").text,
-     :location => project.css("ul.project-meta span.location-name").text,
-     :percent_funded => project.css("ul.project-stats li.first.funded strong").text.gsub("%","").to_i
-
-    students = {
-      :name => index.css('.student-card.card-text')
-      :location =>
-      :profile_url =>
-
+    end
+    students
   end
 
   def self.scrape_profile_page(profile_url)
