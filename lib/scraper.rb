@@ -12,6 +12,12 @@ class Scraper
       students[:name] = student.css(".student-name").text
       students[:location] = student.css(".student-location").text
       students[:profile_url] = student.css("a").attribute("href").value
+      student_info = {
+        :name=>name,
+        :location=>location,
+        :profile_url=>profile_url
+      }
+      students << student_info
     end
     students
   end
@@ -37,5 +43,4 @@ class Scraper
     profile[:bio] = page.css(".details-container div.description-holder p").text
     profile
   end
-
 end
