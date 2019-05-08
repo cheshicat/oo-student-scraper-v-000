@@ -39,7 +39,7 @@ class Scraper
         profile[:blog] = link
       end
     end
-    profile[:profile_quote] = page.css("div.profile-quote").text
+    profile[:profile_quote] = page.css("div.vitals-text-container div.profile-quote").text
     profile[:bio] = page.css("div.description-holder").text
     profile
   end
