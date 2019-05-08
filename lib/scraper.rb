@@ -42,5 +42,4 @@ class Scraper
     profile[:bio] = page.css(".details-container div.description-holder p").text
     profile
   end
-
 end
