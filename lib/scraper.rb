@@ -10,6 +10,7 @@ class Scraper
 
     index.css("div.student-card").each do |student|
       name = student.css("div.card-text-container h4.student-name").text
+      students[name] = []
     end
     students
   end
