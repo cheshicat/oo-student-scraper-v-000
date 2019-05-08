@@ -23,16 +23,11 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    profiles = {}
+    profile = {}
     page = Nokogiri::HTML(open(profile_url))
-
-    page.css("").each do |profile|
-      profiles = {
-        :profile_quote=> ,
-        :bio=>
-      }
-    end
-    profiles
+    profile[:profile_quote] = page.css(".profile_quote").text
+    profile[:bio] = page.css = page.css("div.description_holder p").text
+    profile
   end
 
 end
