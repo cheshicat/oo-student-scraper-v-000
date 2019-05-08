@@ -32,6 +32,7 @@ class Scraper
         :bio=>
       }
     end
+    profiles
   end
 
 end
