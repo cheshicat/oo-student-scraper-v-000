@@ -9,8 +9,8 @@ class Scraper
     index = Nokogiri::HTML(open(index_url))
 
     index.css("div.student-card").each do |student|
-      name = student.css("div.card-text-container h4.student-name").text
-      students[name] = {}
+      student = student.css("div.card-text-container h4.student-name").text
+      students[name.to_sym] = {}
     end
     students
   end
