@@ -37,7 +37,8 @@ class Scraper
         profile[:github] = link
       elsif link.include?(".com")
         profile[:blog] = link
-        end
+      end
+    end
     profile[:profile_quote] = page.css(".profile_quote").text
     profile[:bio] = page.css(".description_holder p").text
     profile
