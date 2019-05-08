@@ -13,9 +13,9 @@ class Scraper
       location = student.css(".student-location").text
       profile_url = student.css("a").attribute("href").value
       student_info = {
-        :name => name,
-        :location => location,
-        :profile_url => profile_url
+        :name=>name,
+        :location=>location,
+        :profile_url=>profile_url
       }
       students << student_info
     end
@@ -23,15 +23,14 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    profile = {}
+    profiles = {}
     page = Nokogiri::HTML(open(profile_url))
 
-    container = page.css(".social-icon-container a").collect{|icon| icon.attribute("href").value}
-    container.each do |link|
-      if link.include?("twitter")
-        profile[:twitter] = link
-      end
-      profile
+    page.css("").each do |profile|
+      profiles = {
+        :profile_quote=> ,
+        :bio=>
+      }
     end
   end
 
